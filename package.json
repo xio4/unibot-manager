@@ -1,0 +1,123 @@
+{
+    "name":"unibot-manager",
+    "version": "1.0.0",
+    "main": "Main.ts",
+    "scripts": {
+        "init": "better-npm-run init",
+        "build": "better-npm-run build-dev",
+        "build:prod": "better-npm-run build-prod",
+        "server": "better-npm-run server-dev",
+        "test": "better-npm-run test"
+    },
+    "betterScripts": {
+        "init": {
+            "command": "node init-typings.js"
+        },
+        "test": {
+            "command": "node ./node_modules/jest-cli/bin/jest.js --"
+        },
+        "build-dev": {
+            "command": "node webpack/server",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        },
+        "build-prod": {
+            "command": "node ./node_modules/webpack/bin/webpack --config ./webpack/config/prod.js --progress --colors --bail",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        },
+        "server-dev": {
+            "command": "node server",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        }
+    },
+    "jest": {
+        "scriptPreprocessor": "<rootDir>/src/utils/testUtils/preprocessor.js",
+        "testFileExtensions": ["ts", "tsx", "js"],
+        "moduleFileExtensions": ["ts", "tsx", "js"],
+        "unmockedModulePathPatterns": [
+            "<rootDir>/node_modules/react/",
+            "<rootDir>/node_modules/react-dom/",
+            "<rootDir>/node_modules/react-addons-test-utils/"
+        ]
+    },
+    "typings": [
+        "react-router/history",
+        "node",
+        "express-serve-static-core",
+        "mime",
+        "uglify-js",
+        "source-map",
+        "moment-node",
+        "es6-shim"
+    ],
+    "dependencies": {
+        "bluebird": "3.4.1",
+        "classnames": "2.2.5",
+        "cookie-parser": "1.4.3",
+        "debug": "2.2.0",
+        "lodash": "4.15.0",
+        "ramda": "0.22.1",
+        "moment": "2.14.1",
+        "react": "15.3.1",
+        "react-addons-perf": "15.3.1",
+        "react-addons-pure-render-mixin": "15.3.1",
+        "react-dom": "15.3.1",
+        "react-redux": "4.4.5",
+        "redux": "3.5.2",
+        "react-router": "2.6.1",
+        "react-router-redux": "4.0.5",
+        "superagent": "2.2.0"
+    },
+    "devDependencies": {
+        "assets-webpack-plugin": "3.4.0",
+        "body-parser": "1.15.2",
+        "express": "4.14.0",
+        "autoprefixer": "6.4.0",
+        "better-npm-run": "0.0.11",
+        "bootstrap": "3.3.7",
+        "bootstrap-loader": "1.2.0-beta.1",
+        "bootstrap-sass": "3.3.7",
+        "compression": "1.6.2",
+        "compression-webpack-plugin": "0.3.1",
+        "clean-webpack-plugin": "0.1.10",
+        "ejs": "2.5.1",
+        "ejs-loader": "0.3.0",
+        "deep-diff": "0.3.4",
+        "css-loader": "0.23.1",
+        "sass-loader": "4.0.0",
+        "node-sass": "3.8.0",
+        "csso": "2.2.1",
+        "csso-loader": "0.2.0",
+        "html-webpack-plugin": "2.22.0",
+        "extract-text-webpack-plugin": "2.0.0-beta.3",
+        "enzyme": "2.4.1",
+        "gemini": "4.6.0",
+        "file-loader": "0.9.0",
+        "happypack": "2.2.1",
+        "json-loader": "0.5.4",
+        "jest-cli": "14.1.0",
+        "postcss-loader": "0.10.1",
+        "progress-bar-webpack-plugin": "1.9.0",
+        "react-addons-test-utils": "15.3.1",
+        "resolve-url-loader": "1.6.0",
+        "selenium-webdriver": "2.52.0",
+        "serve-static": "1.11.1",
+        "stylus": "0.54.5",
+        "stylus-loader": "2.3.1",
+        "style-loader": "0.13.1",
+        "source-map-loader": "0.1.5",
+        "typescript": "1.8.10",
+        "typings": "1.3.2",
+        "ts-loader": "0.8.2",
+        "webpack": "2.1.0-beta.21",
+        "webpack-dev-middleware": "1.6.1",
+        "webpack-hot-middleware": "2.12.2",
+        "webpack-merge": "0.14.1",
+        "url-loader": "0.5.7"
+    }
+}

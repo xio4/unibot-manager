@@ -1,0 +1,13 @@
+build
+node_modules
+typings
+typings.json
+webpack.assets.json
+npm-debug.log
+
+
+# Temp files of editors
+*~
+*.swp
+*.swo
+\.#*

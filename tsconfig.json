@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./build/assets/",
+        "noImplicitAny": true,
+        "target": "es5",
+        "jsx": "react",
+        "module": "commonjs",
+        "sourceMap": true
+    },
+    "exclude": [
+        "__tests__",
+        "node_modules"
+    ]
+}

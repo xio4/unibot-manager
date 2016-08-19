@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "6"
+install:
+  - npm install --ignore-scripts
+  - npm run init
+script:
+  - npm run test
