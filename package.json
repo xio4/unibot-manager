@@ -59,6 +59,7 @@
         "bluebird": "3.4.1",
         "classnames": "2.2.5",
         "cookie-parser": "1.4.3",
+        "history": "2.1.2",
         "debug": "2.2.0",
         "lodash": "4.15.0",
         "ramda": "0.22.1",
@@ -69,6 +70,7 @@
         "react-dom": "15.3.1",
         "react-redux": "4.4.5",
         "redux": "3.5.2",
+        "redux-thunk": "2.1.0",
         "react-router": "2.6.1",
         "react-router-redux": "4.0.5",
         "superagent": "2.2.0"

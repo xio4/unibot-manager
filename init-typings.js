@@ -2,8 +2,8 @@ const fs = require('fs');
 const exec = require('child_process').execSync;
 const _ = require('lodash');
 const excludeList = [
-    '-loader',
-    '-plugin'
+    /-loader/,
+    /-plugin/
 ];
 
 execTypings = (moduleName, useDt) => exec(`node ./node_modules/typings/dist/bin i ${useDt ? '--global' : ''} --save ${useDt ? 'dt~' : ''}${moduleName}`).toString('utf-8');
@@ -15,7 +15,7 @@ fs.readFile('./package.json', 'utf-8', (err, strData) => {
 
     var data = JSON.parse(strData),
         safeExec = moduleName => {
-            if (_.filter(excludeList, exclude => ~moduleName.indexOf(exclude))) {
+            if (!_.isEmpty(_.filter(excludeList, exclude => exclude.test(moduleName)))) {
                 return;
             }
 
