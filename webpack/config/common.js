@@ -12,7 +12,7 @@ module.exports = {
         main: './src/Main.tsx'
     },
     resolve: {
-        extensions: ['', '.ts', '.tsx', '.js'],
+        extensions: ['', '.ts', '.tsx', '.js', '.styl'],
         moduleDirectories: ['node_modules']
     },
     module: {
@@ -23,14 +23,14 @@ module.exports = {
                 loader: 'file'
             },
             {
-                test: /\.styl/,
+                test: /\.styl$/,
                 loader: ExtractTextPlugin.extract({
                     fallbackLoader: 'style',
                     loader: [
                         'css?minimize=false',
                         'csso?-comments&-restructure',
                         'postcss',
-                        'stylus?-compress'
+                        'stylus'
                     ].join('!')
                 })
             },
@@ -75,7 +75,8 @@ module.exports = {
             'process.env': {
                 NODE_ENV: JSON.stringify(NODE_ENV)
             }
-        })
+        }),
+        new webpack.BannerPlugin("Copyright(C) 2016 Petr Shalkov")
     ]
 
 };

@@ -25,6 +25,10 @@ const prodConfig = {
         jsonpFunction: 'jpf'
     },
     plugins: [
+        new ExtractTextPlugin({
+            filename: '[name].[hash].css',
+            allChunks: true
+        }),
         new AssetsPlugin({
             filename: 'webpack.assets.json'
         }),
