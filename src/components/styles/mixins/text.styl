@@ -1,3 +1,28 @@
-// Font
+@import '../constants/text'
 
-$font-roboto    =   "Roboto", sans-serif
+text(fontSize, lineSize, weight = $font-normal, italic = false)
+    font-family $font-roboto
+    font-size fontSize
+    font-weight weight
+    if italic
+        font-style italic
+
+text_xs()
+    text 10px 12px
+
+text_s()
+    text 12px 15px
+
+text_m()
+    text 14px 17px
+
+text_l()
+    text 18px 23px
+
+text_xl()
+    text 24px 30px
+
+text_xxl()
+    text 36px 45px
+
+
