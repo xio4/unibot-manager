@@ -5,9 +5,7 @@ import { makeRootReducer } from '../reducers/index';
 
 const stateFunc = (initialState = {}, history: any): any => {
     const middleware = [thunk, routerMiddleware(history)];
-
     const enchancers: any[] = [];
-
     const store: any = createStore(
         makeRootReducer(null),
         initialState,
@@ -18,7 +16,6 @@ const stateFunc = (initialState = {}, history: any): any => {
     );
 
     store.asyncReducers = {};
-
 
     return store;
 };

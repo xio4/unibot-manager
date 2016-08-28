@@ -11,7 +11,7 @@ export class CoreLayout extends React.Component<CoreLayoutProps, any> {
     render() {
         return <div className='core-layout'>
             <UIHeader></UIHeader>
-            <div className='core-layout__container'>
+            <div className='container core-layout__container'>
                 {this.props.children}
             </div>
             <UIFooter></UIFooter>
