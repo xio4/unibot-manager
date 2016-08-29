@@ -6,7 +6,6 @@ export function makeRootReducer(asyncReducers: any): any {
         { router },
         asyncReducers
     ));
-
 }
 
 export function injectReducer(store: any, options: any) {
