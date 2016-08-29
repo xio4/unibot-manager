@@ -3,18 +3,16 @@
     "version": "1.0.0",
     "main": "Main.ts",
     "scripts": {
-        "init": "better-npm-run init",
+        "postinstall": "better-npm-run init",
         "build": "better-npm-run build-dev",
         "build:prod": "better-npm-run build-prod",
         "server": "better-npm-run server-dev",
-        "test": "better-npm-run test"
+        "test": "better-npm-run test",
+        "e2e": "better-npm-run e2e-test"
     },
     "betterScripts": {
         "init": {
-            "command": "node init-typings.js"
-        },
-        "test": {
-            "command": "node ./node_modules/jest-cli/bin/jest.js --"
+            "command": "node init-typings.js; node ./node_modules/selenium-standalone/bin/selenium-standalone install"
         },
         "build-dev": {
             "command": "node webpack/server",
@@ -33,6 +31,12 @@
             "env": {
                 "NODE_ENV": "development"
             }
+        },
+        "test": {
+            "command": "node ./node_modules/jest-cli/bin/jest.js --"
+        },
+        "e2e-test": {
+            "command": "node ./node_modules/nightwatch/bin/nightwatch"
         }
     },
     "jest": {
@@ -53,9 +57,35 @@
         "uglify-js",
         "source-map",
         "moment-node",
-        "es6-shim"
+        "es6-shim",
+        "accept-language",
+        "bluebird",
+        "classnames",
+        "cookie-parser",
+        "history",
+        "debug",
+        "express",
+        "enzyme",
+        "jest-cli",
+        "lodash",
+        "ramda",
+        "moment",
+        "react",
+        "react-addons-perf",
+        "react-addons-pure-render-mixin",
+        "react-addons-test-utils",
+        "react-dom",
+        "react-redux",
+        "redux",
+        "redux-thunk",
+        "react-intl",
+        "react-router",
+        "react-router-redux",
+        "serve-static",
+        "superagent"
     ],
     "dependencies": {
+        "accept-language": "2.0.17",
         "bluebird": "3.4.1",
         "classnames": "2.2.5",
         "cookie-parser": "1.4.3",
@@ -71,6 +101,7 @@
         "react-redux": "4.4.5",
         "redux": "3.5.2",
         "redux-thunk": "2.1.0",
+        "react-intl": "2.1.4",
         "react-router": "2.6.1",
         "react-router-redux": "4.0.5",
         "superagent": "2.2.0"
@@ -101,18 +132,21 @@
         "gemini": "4.6.0",
         "file-loader": "0.9.0",
         "happypack": "2.2.1",
+        "nightwatch": "0.9.8",
         "json-loader": "0.5.4",
         "jest-cli": "14.1.0",
+        "phantomjs": "2.1.7",
         "postcss-loader": "0.10.1",
         "progress-bar-webpack-plugin": "1.9.0",
         "react-addons-test-utils": "15.3.1",
         "resolve-url-loader": "1.6.0",
-        "selenium-webdriver": "2.52.0",
         "serve-static": "1.11.1",
         "stylus": "0.54.5",
         "stylus-loader": "2.3.1",
         "style-loader": "0.13.1",
         "source-map-loader": "0.1.5",
+        "selenium-webdriver": "2.52.0",
+        "selenium-standalone": "5.6.2",
         "typescript": "1.8.10",
         "typings": "1.3.2",
         "ts-loader": "0.8.2",

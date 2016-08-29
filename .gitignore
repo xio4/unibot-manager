@@ -1,9 +1,11 @@
 build
 node_modules
 typings
+reports
 typings.json
 webpack.assets.json
 npm-debug.log
+selenium-debug.log
 
 
 # Temp files of editors

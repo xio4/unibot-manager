@@ -32,8 +32,8 @@ fs.readFile('./package.json', 'utf-8', (err, strData) => {
     console.log('start typings process...');
 
     _.forEach(data.typings, moduleName => safeExec(moduleName));
-    _.forEach(data.dependencies, (val, moduleName) => safeExec(moduleName));
-    _.forEach(data.devDependencies, (val, moduleName) => safeExec(moduleName));
+//    _.forEach(data.dependencies, (val, moduleName) => safeExec(moduleName));
+//    _.forEach(data.devDependencies, (val, moduleName) => safeExec(moduleName));
 
     console.log('typings process completed');
 });
