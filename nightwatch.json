@@ -30,10 +30,22 @@
                 "path": "reports"
             },
             "desiredCapabilities": {
-                "browserName": "firefox",
+                "browserName": "phantomjs",
                 "javascriptEnabled": true,
-                "acceptSslCerts": true
-            } 
+                "acceptSslCerts": true,
+                "phantomjs.binary.path": "./node_modules/phantomjs/bin/phantomjs",
+                "phantomjs.cli.args": []
+            }
+        },
+
+        "phantomjs": {
+            "desiredCapabilities": {
+                "browserName": "phantomjs",
+                "javascriptEnabled": true,
+                "acceptSslCerts": true,
+                "phantomjs.binary.path": "./node_modules/phantomjs/bin/phantomjs",
+                "phantomjs.cli.args": []
+            }
         },
 
         "firefox": {
