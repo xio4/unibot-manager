@@ -80,4 +80,4 @@ export class UIGridColumn extends React.Component<UIGridColumnProps, any> {
             {children}
         </div>;
     }
-};
+}
