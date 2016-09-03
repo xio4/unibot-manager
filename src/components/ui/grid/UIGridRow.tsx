@@ -9,7 +9,7 @@ export const UIGridRow = (props: UIGridRowProps) => {
     return <div 
         className={classNames({
             'row': true,
-            [`ui-grid__row_${props.mod}`]: !!props.mod
+            [`ui-grid-row_${props.mod}`]: !!props.mod
         })}
     >
         {props.children}
