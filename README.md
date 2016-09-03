@@ -4,8 +4,6 @@
 
 npm i
 
-npm run init
-
 ## Production mode
 
 npm run build:prod

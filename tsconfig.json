@@ -9,6 +9,7 @@
     },
     "exclude": [
         "__tests__",
+        "__e2e_tests__",
         "node_modules"
     ]
 }

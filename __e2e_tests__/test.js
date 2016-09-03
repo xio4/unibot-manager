@@ -1,5 +1,5 @@
 module.exports = {
-      'Demo test' : function (browser) {
+      'Demo test javascript' : function (browser) {
               browser
                 .url('http://localhost://8000')
                 .waitForElementVisible('body', 1000)

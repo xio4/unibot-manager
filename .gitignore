@@ -1,4 +1,5 @@
 build
+testBuild
 node_modules
 typings
 reports
