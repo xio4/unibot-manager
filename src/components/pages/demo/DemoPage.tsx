@@ -5,6 +5,7 @@ import Align from '../../../constants/align.ts';
 import { UITable } from '../../ui/table/UITable.tsx';
 import { UITableRow } from '../../ui/table/UITableRow.tsx';
 import { UITableColumn } from '../../ui/table/UITableColumn.tsx';
+import { UIButton } from '../../ui/button/UIButton.tsx';
 
 import './demo.styl';
 
@@ -58,6 +59,19 @@ export class DemoPage extends React.Component<any, void> {
                         </UITableColumn>
                     </UITableRow> 
                 </UITable>
+            </div>
+            <div className='demo__title'>
+                Buttons
+            </div>
+            <div className='demo__content'> 
+                {
+                    ['default', 'primary', 'success',
+                        'info', 'warning', 'danger', 'link'].map(name =>
+                         <UIButton style={name}>
+                             {name}
+                        </UIButton>
+                    )
+                }
             </div>
         </div>;
     }

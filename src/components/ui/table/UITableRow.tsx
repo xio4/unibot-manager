@@ -21,7 +21,7 @@ export const UITableRow = (props: UITableRowProps) => {
             'warning': !!props.warning,
             'danger': !!props.danger,
             'info': !!props.info,
-            [`ui-table-row_{props.mod}`]: !!props.mod
+            [`ui-table-row_${props.mod}`]: !!props.mod
         })}
     >
         {props.children}
