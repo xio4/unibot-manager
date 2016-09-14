@@ -3,6 +3,11 @@ import * as classNames from 'classnames';
 
 import './ui-button.styl';
 
+export type ButtonType =
+    'button'
+    | 'submit'
+    | 'reset';
+
 export type ButtonStyle =
     'default'
     | 'primary'
@@ -14,6 +19,7 @@ export type ButtonStyle =
 
 export type ButtonSize =
     'lg'
+    | 'md'
     | 'sm'
     | 'xs';
 
@@ -21,9 +27,9 @@ interface UIButtonProps {
     tag?: string;
     children?: any;
     mod?: string;
-    style?: string;
-    type?: string;
-    size?: string;
+    style?: ButtonStyle;
+    type?: ButtonType;
+    size?: ButtonSize;
     active?: boolean;
     disabled?: boolean;
 }
