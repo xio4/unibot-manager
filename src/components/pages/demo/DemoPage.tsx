@@ -6,6 +6,7 @@ import { UITable } from '../../ui/table/UITable.tsx';
 import { UITableRow } from '../../ui/table/UITableRow.tsx';
 import { UITableColumn } from '../../ui/table/UITableColumn.tsx';
 import { UIButton, ButtonStyle, ButtonSize } from '../../ui/button/UIButton.tsx';
+import { UITitle, TitleSize } from '../../ui/title/UITitle.tsx';
 
 import './demo.styl';
 
@@ -78,6 +79,22 @@ export class DemoPage extends React.Component<any, void> {
                              size {size}
                         </UIButton>
                     )
+                }
+            </div>
+            <div className='demo__title'>
+                Title
+            </div>
+            <div className='demo__content'>
+                {
+                    (['lg', 'md', 'sm', 'xs'] as Array<TitleSize>).map(size =>
+                        <div>
+                            <UITitle size={size}>
+                                Title size {size}
+                            </UITitle>
+                            <UITitle size={size} subtitle>
+                                Subtitle size {size}
+                            </UITitle>
+                        </div>)
                 }
             </div>
         </div>;
