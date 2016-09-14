@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
+import { noop } from 'lodash';
 
 import './ui-button.styl';
 
@@ -32,10 +33,13 @@ interface UIButtonProps {
     size?: ButtonSize;
     active?: boolean;
     disabled?: boolean;
+    onClick?: Function;
 }
 
 export const UIButton = (props: UIButtonProps) => {
-    return <button
+    const Tag: any = props.tag;
+
+    return <Tag
         className={classNames({
             'btn': true,
             [`btn-${props.style}`]: !!props.style,
@@ -45,9 +49,10 @@ export const UIButton = (props: UIButtonProps) => {
             [`ui-button_{props.mod}`]: !!props.mod
         })}
         type={props.type}
+        onClick={props.onClick}
     >
         {props.children}
-    </button>;
+    </Tag>;
 }
 
 (UIButton as any).defaultProps = {
@@ -56,4 +61,5 @@ export const UIButton = (props: UIButtonProps) => {
     tag: 'button',
     active: false,
     disabled: false,
+    onClick: noop
 };
