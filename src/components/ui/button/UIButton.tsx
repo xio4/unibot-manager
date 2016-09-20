@@ -25,14 +25,14 @@ export type ButtonSize =
     | 'xs';
 
 interface UIButtonProps {
-    tag?: string;
-    children?: any;
-    mod?: string;
-    style?: ButtonStyle;
-    type?: ButtonType;
-    size?: ButtonSize;
     active?: boolean;
+    children?: any;
     disabled?: boolean;
+    mod?: string;
+    size?: ButtonSize;
+    style?: ButtonStyle;
+    tag?: string;
+    btype?: ButtonType;
     onClick?: Function;
 }
 
@@ -48,7 +48,7 @@ export const UIButton = (props: UIButtonProps) => {
             'disabled': !!props.disabled,
             [`ui-button_{props.mod}`]: !!props.mod
         })}
-        type={props.type}
+        type={props.btype}
         onClick={props.onClick}
     >
         {props.children}
@@ -57,7 +57,7 @@ export const UIButton = (props: UIButtonProps) => {
 
 (UIButton as any).defaultProps = {
     style: 'default',
-    type: 'button',
+    btype: 'button',
     tag: 'button',
     active: false,
     disabled: false,

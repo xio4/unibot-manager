@@ -7,12 +7,21 @@ import { UITableRow } from '../../ui/table/UITableRow.tsx';
 import { UITableColumn } from '../../ui/table/UITableColumn.tsx';
 import { UIButton, ButtonStyle, ButtonSize } from '../../ui/button/UIButton.tsx';
 import { UITitle, TitleSize } from '../../ui/title/UITitle.tsx';
+import { UIForm, ISchema } from '../../ui/form/UIForm.tsx';
 
 import './demo.styl';
 
 const { OFFSET_1 } = Offset;
 const { COL_1 } = Column;
 const { RIGHT } = Align;
+const formSchema: ISchema = {
+    elements: [
+        {
+            etype: 'button',
+            id: 'button'
+        }
+    ]
+};
 
 export class DemoPage extends React.Component<any, void> {
     render() {
@@ -97,6 +106,12 @@ export class DemoPage extends React.Component<any, void> {
                         </div>)
                 }
             </div>
+            <div className='demo__title'>
+                Simple form
+            </div>
+            <div className='demo__content'>
+                <UIForm schema={formSchema} />
+            </div> 
         </div>;
     }
 }
