@@ -21,7 +21,7 @@ export const UITable = (props: UITableProps) => {
             'table-bordered': props.bordered,
             'table-hover': props.hover,
             'table-condensed': props.condensed,
-            [`ui-table_{props.mod}`]: !!props.mod
+            [`ui-table_${props.mod}`]: !!props.mod
         })}
     >
         <thead>

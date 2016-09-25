@@ -34,7 +34,7 @@ export const Offset = {
     OFFSET_12: '12'
 };
 
-interface UIGridColumnProps { 
+interface UIGridColumnProps {
     align?: string;
     children?: any;
     mod?: string;

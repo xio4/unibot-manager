@@ -5,12 +5,23 @@ import Align from '../../../constants/align.ts';
 import { UITable } from '../../ui/table/UITable.tsx';
 import { UITableRow } from '../../ui/table/UITableRow.tsx';
 import { UITableColumn } from '../../ui/table/UITableColumn.tsx';
+import { UIButton, ButtonStyle, ButtonSize } from '../../ui/button/UIButton.tsx';
+import { UITitle, TitleSize } from '../../ui/title/UITitle.tsx';
+import { UIForm, ISchema } from '../../ui/form/UIForm.tsx';
 
 import './demo.styl';
 
 const { OFFSET_1 } = Offset;
 const { COL_1 } = Column;
 const { RIGHT } = Align;
+const formSchema: ISchema = {
+    elements: [
+        {
+            etype: 'button',
+            id: 'button'
+        }
+    ]
+};
 
 export class DemoPage extends React.Component<any, void> {
     render() {
@@ -59,6 +70,48 @@ export class DemoPage extends React.Component<any, void> {
                     </UITableRow> 
                 </UITable>
             </div>
+            <div className='demo__title'>
+                Buttons
+            </div>
+            <div className='demo__content'> 
+                {
+                    (['default', 'primary', 'success',
+                        'info', 'warning', 'danger', 'link'] as Array<ButtonStyle>).map(name =>
+                         <UIButton style={name}>
+                             style {name}
+                        </UIButton>
+                    )
+                }
+                {
+                    (['lg', 'md', 'sm', 'xs'] as Array<ButtonSize>).map(size =>
+                         <UIButton size={size}>
+                             size {size}
+                        </UIButton>
+                    )
+                }
+            </div>
+            <div className='demo__title'>
+                Title
+            </div>
+            <div className='demo__content'>
+                {
+                    (['lg', 'md', 'sm', 'xs'] as Array<TitleSize>).map(size =>
+                        <div>
+                            <UITitle size={size}>
+                                Title size {size}
+                            </UITitle>
+                            <UITitle size={size} subtitle>
+                                Subtitle size {size}
+                            </UITitle>
+                        </div>)
+                }
+            </div>
+            <div className='demo__title'>
+                Simple form
+            </div>
+            <div className='demo__content'>
+                <UIForm schema={formSchema} />
+            </div> 
         </div>;
     }
 }
