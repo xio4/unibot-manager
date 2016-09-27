@@ -3,6 +3,7 @@ import * as classNames from 'classnames';
 import { path, isNil } from 'ramda';
 import { forEach } from 'lodash';
 import * as Align from '../../../constants/align.ts';
+import { OnChange } from './utils/events';
 //import * as formValidators from './validators/index.ts';
 
 import './ui-form.styl';
@@ -63,7 +64,7 @@ interface UIFormProps {
     tag?: string;
     validators?: any;
     values?: any;
-    onChange?: Function;
+    onChange?: OnChange;
 }
 
 export class UIForm extends React.Component<UIFormProps, any> {
