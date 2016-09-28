@@ -1,28 +1,18 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
-import { path, isNil } from 'ramda';
-import { forEach } from 'lodash';
-import * as Align from '../../../constants/align.ts';
-import { OnChange } from './utils/events';
-//import * as formValidators from './validators/index.ts';
+import { prop, path, isNil } from 'ramda';
+import { forEach, isUndefined } from 'lodash';
+import * as Align from '../../../constants/align';
+import { IOnChange } from './utils/events';
+import { ISchema, ISchemaElement } from './schema/schemaTypes';
+import { ElementType } from './elements/elementTypes';
+import elements from './elements/elements';
+import { IValidator } from './validators/validatorTypes';
 
 import './ui-form.styl';
 
 const targetValuePath = path(['target', 'value']);
 
-export type ValidatorRuleType = 
-    RegExp
-    | 'string'
-    | Function;
-
-export type ValidatorTextType =
-    'string'
-    | Function;
-
-interface IValidator {
-    rule: ValidatorRuleType;
-    text: ValidatorTextType;
-}
 
 // FIXME: Fake
 const formValidators: any = {
@@ -31,29 +21,6 @@ const formValidators: any = {
         rule: (values: any, value: any, options: any, sources: any) => !isNil(value)
     }
 };
-
-export type SchemaElementType =
-    'button'
-    | 'hidden'
-    | 'text'
-    | 'word'
-    | 'number'
-    | 'radio'
-    | 'checkbox'
-    | 'select'
-    | 'file'
-    | 'group';
-
-export interface ISchemaElement {
-    disabled?: boolean,
-    etype: SchemaElementType,
-    id: string,
-    inactive?: boolean
-}
-
-export interface ISchema {
-    elements: Array<ISchemaElement>
-}
 
 interface UIFormProps {
     children?: any;
@@ -64,7 +31,7 @@ interface UIFormProps {
     tag?: string;
     validators?: any;
     values?: any;
-    onChange?: OnChange;
+    onChange?: IOnChange;
 }
 
 export class UIForm extends React.Component<UIFormProps, any> {
@@ -76,6 +43,7 @@ export class UIForm extends React.Component<UIFormProps, any> {
     state: any = {
         errors: {}
     };
+
     values: any = {};
     errors: any = {};
 
@@ -114,8 +82,9 @@ export class UIForm extends React.Component<UIFormProps, any> {
         return newErrors;
     }
 
-    onChange = (id: string, event: Event, value: any) => {
-        const newValue = targetValuePath(event) || value;
+    onChange = (id: string) => (event: Event, value: any) => {
+        const 
+            newValue = isUndefined(value) ? targetValuePath(event) : value;
 
         this.values[id] = newValue;
         this.errors = this.getErrors();
@@ -126,11 +95,24 @@ export class UIForm extends React.Component<UIFormProps, any> {
         this.props.onChange(this.values, this.errors, id);
     };
 
+    renderElement = (schema: ISchemaElement, key: any) => {
+        const 
+            etype: number = schema.etype,
+            Element: any = prop(etype.toString(), elements);
+
+        if (!Element) {
+            throw new Error(`Can't find ${ElementType[schema.etype]}`);
+        }
+
+        return <Element
+            key={key}
+            schema={schema}
+        />;
+    };
+
     render() {
         const
-            {
-                tag, children, mod
-            } = this.props,
+            { tag, children, mod, schema } = this.props,
             Tag: any = tag;
 
         return <Tag
@@ -139,6 +121,7 @@ export class UIForm extends React.Component<UIFormProps, any> {
                 [`ui-form_${mod}`]: !!mod
             })}
         >
+            {schema.elements.map(this.renderElement)}
             {children}
         </Tag>;
     }

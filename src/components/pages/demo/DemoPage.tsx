@@ -7,7 +7,9 @@ import { UITableRow } from '../../ui/table/UITableRow.tsx';
 import { UITableColumn } from '../../ui/table/UITableColumn.tsx';
 import { UIButton, ButtonStyle, ButtonSize } from '../../ui/button/UIButton.tsx';
 import { UITitle, TitleSize } from '../../ui/title/UITitle.tsx';
-import { UIForm, ISchema } from '../../ui/form/UIForm.tsx';
+import { UIForm } from '../../ui/form/UIForm.tsx';
+import { ISchema } from '../../ui/form/schema/schemaTypes';
+import { ElementType } from '../../ui/form/elements/elementTypes';
 
 import './demo.styl';
 
@@ -17,8 +19,8 @@ const { RIGHT } = Align;
 const formSchema: ISchema = {
     elements: [
         {
-            etype: 'button',
-            id: 'button'
+            etype: ElementType.TEXT,
+            id: 'text'
         }
     ]
 };
@@ -76,15 +78,15 @@ export class DemoPage extends React.Component<any, void> {
             <div className='demo__content'> 
                 {
                     (['default', 'primary', 'success',
-                        'info', 'warning', 'danger', 'link'] as Array<ButtonStyle>).map(name =>
-                         <UIButton style={name}>
+                        'info', 'warning', 'danger', 'link'] as Array<ButtonStyle>).map((name, key) =>
+                         <UIButton style={name} key={key}>
                              style {name}
                         </UIButton>
                     )
                 }
                 {
-                    (['lg', 'md', 'sm', 'xs'] as Array<ButtonSize>).map(size =>
-                         <UIButton size={size}>
+                    (['lg', 'md', 'sm', 'xs'] as Array<ButtonSize>).map((size, key) =>
+                         <UIButton size={size} key={key}>
                              size {size}
                         </UIButton>
                     )
@@ -95,8 +97,8 @@ export class DemoPage extends React.Component<any, void> {
             </div>
             <div className='demo__content'>
                 {
-                    (['lg', 'md', 'sm', 'xs'] as Array<TitleSize>).map(size =>
-                        <div>
+                    (['lg', 'md', 'sm', 'xs'] as Array<TitleSize>).map((size, key) =>
+                        <div key={key}>
                             <UITitle size={size}>
                                 Title size {size}
                             </UITitle>
