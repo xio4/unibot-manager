@@ -43,7 +43,8 @@ export class FormElementText extends React.Component<FormElementTextProps, any> 
     componentWillReceiveProps(nextProps: FormElementTextProps) {
     }
 
-    onChange = (event: Event) => {
+    handleChange = (event: Event) => {
+        this.props.onChange(event);
     };
 
     render() {
@@ -53,10 +54,12 @@ export class FormElementText extends React.Component<FormElementTextProps, any> 
             } = this.props,
             Tag: any = tag;
 
-        return <UIInput
-
-        >
-            {children}
-        </UIInput>;
+        return <FormElementRow {...this.props}>
+            <UIInput
+                onChange={this.handleChange}
+            >
+                {children}
+            </UIInput>
+        </FormElementRow>;
     }
 }

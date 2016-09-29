@@ -1,6 +1,5 @@
 export type ValidatorRuleType = 
     RegExp
-    | 'string'
     | Function;
 
 export type ValidatorTextType =
@@ -8,6 +7,7 @@ export type ValidatorTextType =
     | Function;
 
 export interface IValidator {
+    name: string;
     rule: ValidatorRuleType;
     text: ValidatorTextType;
 }

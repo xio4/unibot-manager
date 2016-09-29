@@ -1,4 +1,9 @@
 @import '../../styles/main'
 
 .ui-form
-    display block
+    &__row
+        &_error
+            border 1px solid $color-red
+            
+            &-text
+                color $color-red

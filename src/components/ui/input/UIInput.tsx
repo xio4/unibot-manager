@@ -25,10 +25,11 @@ export class UIInput extends React.Component<UIInputProps, any> {
     componentWillReceiveProps(nextProps: UIInputProps) {
     }
 
-    onChange = (event: Event) => {
+    handleChange = (event: Event) => {
     };
 
-    onInput = (event: Event) => {
+    handleInput = (event: Event) => {
+        this.props.onChange(event);
     };
 
     render() {
@@ -43,8 +44,8 @@ export class UIInput extends React.Component<UIInputProps, any> {
         >
             <input 
                 value={value}
-                onChange={this.onChange}
-                onInput={this.onInput}
+                onChange={this.handleChange}
+                onInput={this.handleInput}
             />
         </div>;
     }

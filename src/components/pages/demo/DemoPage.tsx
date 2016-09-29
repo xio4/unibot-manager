@@ -112,7 +112,9 @@ export class DemoPage extends React.Component<any, void> {
                 Simple form
             </div>
             <div className='demo__content'>
-                <UIForm schema={formSchema} />
+                <UIForm schema={formSchema}>
+                    <button>Submit</button>
+                </UIForm>
             </div> 
         </div>;
     }
