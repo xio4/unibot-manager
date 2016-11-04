@@ -30,7 +30,7 @@ module.exports = {
                         'css?minimize=false',
                         'csso?-comments&-restructure',
                         'postcss',
-                        'stylus'
+                        'stylus?resolve url'
                     ].join('!')
                 })
             },
